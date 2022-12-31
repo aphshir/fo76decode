@@ -1,5 +1,5 @@
 class fo76decode:
-    def paring(key,number,pairlist):
+    def pairing(key,number,pairlist):
         pairlist[key] = number
         return(pairlist)
     def findscrambled(keyword,pairlist):
