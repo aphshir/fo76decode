@@ -54,3 +54,9 @@ variables:
 `pairlist` the list of code pairs
 
 output:(str) the nuke launch codes for your favorite silo
+# bages
+doing my best to write quality code !:
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/77fe36c56a8ad2d39a4a/maintainability)](https://codeclimate.com/github/aphshir/fo76decode/maintainability)
+
+I hope improving it soon !
