@@ -1,8 +1,18 @@
 import re
 def pairing(key,number,pairlist):
+    if type(key) != str:
+        raise TypeError('expected str at key got, ',type(key))
+    if type(number) != int:
+        raise TypeError('expected int at number got, ',type(number))
+    if type(pairlist) != dict:
+        raise TypeError('expected dict at pairlist got, ',type(pairlist))
     pairlist[key] = number
     return(pairlist)
 def findscrambled(keyword,pairlist):
+    if type(keyword) != str:
+        raise TypeError('expected str at keyword got, ',type(keyword))
+    if type(pairlist) != dict:
+        raise TypeError('expected dict at pairlist got, ',type(pairlist))
     alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     keyalpha=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     pairindex=list(pairlist)
@@ -18,6 +28,12 @@ def findscrambled(keyword,pairlist):
         scrambled.append(alphabet[pairpos[i]])
     return(scrambled)
 def findcode(scrambled,word,pairs):
+    if type(scrambled) != tuple:
+        raise TypeError('expected tuple at scrambled got, ',type(scrambled))
+    if type(word) != str:
+        raise TypeError('expected str at word got, ',type(word))
+    if type(pairs) != dict:
+        raise TypeError('expected dict at pairs got, ',type(pairs))
     pairindex=list(pairs)
     wordlist=re.findall('[a-zA-Z]', word)
     mirorcode=[]
