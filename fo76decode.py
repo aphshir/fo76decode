@@ -27,8 +27,7 @@ def findscrambled(keyword,pairlist):
     scrambled = []
     for i in range(8):
         scrambled.append(alphabet[pairpos[i]])
-    sscrambled=str("")
-    sscrambled.join(scrambled)
+    sscrambled="".join(scrambled)
     return(sscrambled)
 def findcode(scrambled,word,pairs):
     if type(scrambled) != str:
