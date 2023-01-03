@@ -1,7 +1,7 @@
 # fo76decode
 fo76decode is a python tool to decode fallout 76 launch codes
 ## dependecies
-fo76decode depends of the re python library
+fo76decode depends of the re and requests python library
 ## funcions:
 the original namespace of the class is fo76decode
 
@@ -54,6 +54,16 @@ variables:
 `pairlist` the list of code pairs
 
 output:(str) the nuke launch codes for your favorite silo
+
+`fo76decode.findanagram(scrambled)`
+
+find 8 letters anagrams for the given sting using anagramica.com API's
+
+variables:
+
+`scrambled` (str) the string of a scrambed keyword
+
+output: tuple of possible anagrams
 # bages
 doing my best to write quality code !:
 
