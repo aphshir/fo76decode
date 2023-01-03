@@ -27,14 +27,16 @@ def findscrambled(keyword,pairlist):
     scrambled = []
     for i in range(8):
         scrambled.append(alphabet[pairpos[i]])
-    return(scrambled)
+    sscrambled="".join(scrambled)
+    return(sscrambled)
 def findcode(scrambled,word,pairs):
-    if type(scrambled) != tuple:
-        raise TypeError('expected tuple at scrambled got, ',type(scrambled))
+    if type(scrambled) != str:
+        raise TypeError('expected str at scrambled got, ',type(scrambled))
     if type(word) != str:
         raise TypeError('expected str at word got, ',type(word))
     if type(pairs) != dict:
         raise TypeError('expected dict at pairs got, ',type(pairs))
+    scrambled=re.findall('[a-zA-Z]', scrambled)
     pairindex=list(pairs)
     wordlist=re.findall('[a-zA-Z]', word)
     mirorcode=[]
@@ -47,7 +49,9 @@ def findcode(scrambled,word,pairs):
         codel.append(pairs[pairindex[mirorcode[i]]])
     code = "".join(map(str,codel))
     return(code)
-def findanagram(scrambled):
+def findanagram():
+    if type != scrambled:
+        raise TypeError('expected str at scrambled got, ', type(scrambled))
     anagram=[]
     url="http://www.anagramica.com/all/:"+scrambled
     resp=requests.get(url)
