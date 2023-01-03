@@ -1,3 +1,4 @@
+import requests
 import re
 def pairing(key,number,pairlist):
     if type(key) != str:
@@ -46,3 +47,15 @@ def findcode(scrambled,word,pairs):
         codel.append(pairs[pairindex[mirorcode[i]]])
     code = "".join(map(str,codel))
     return(code)
+def findanagram(scrambled):
+    anagram=[]
+    url="http://www.anagramica.com/all/:"+scrambled
+    resp=requests.get(url)
+    jsn=resp.json()
+    lst=jsn['all']
+    for i in range(len(lst)):
+        if len(lst[i]) == 8:
+            anagram.append(lst[i])
+    if anagram == []:
+        anagram = None
+    return(anagram)
