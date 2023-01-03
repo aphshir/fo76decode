@@ -49,7 +49,7 @@ def findcode(scrambled,word,pairs):
         codel.append(pairs[pairindex[mirorcode[i]]])
     code = "".join(map(str,codel))
     return(code)
-def findanagram():
+def findanagram(scrambled):
     if type != scrambled:
         raise TypeError('expected str at scrambled got, ', type(scrambled))
     anagram=[]
