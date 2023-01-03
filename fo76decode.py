@@ -14,8 +14,9 @@ def findscrambled(keyword,pairlist):
         raise TypeError('expected str at keyword got, ',type(keyword))
     if type(pairlist) != dict:
         raise TypeError('expected dict at pairlist got, ',type(pairlist))
-    alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    keyalpha=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    alphabet=tuple(["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"])
+    keyalpha=alphabet
+    keyalpha=list(keyalpha)
     pairindex=list(pairlist)
     keyletters = re.findall('[a-zA-Z]', keyword)
     for i in range(len(keyletters)):
