@@ -1,7 +1,6 @@
 import requests
 import re
-import time
-import WFscrap as WF #custom lib to scrap wordfinder made my dilgodev !
+import WFscrap as WF #custom lib to scrap wordfinder made by dilgodev !
 def pairing(key,number,pairlist):
     if type(key) != str:
         raise TypeError("expected str at key got, " ,errortrans(key))
@@ -100,43 +99,20 @@ def errortrans(typ):
     else:
         r=type(typ)
     return(r)
-def Sfindincomplete(anagram,lenth='max'):
-    r=False
-    l=[]
-    a=WF.findAnagram(anagram,lenth)
-    for n in range(len(anagram)):
-        #anagram = ?es?
-        print(anagram[n])
-        print('n=',n)
-        if anagram[n] == '?':
+def sameLetter(anagram, word):
+    if len(anagram) != len(word):
+        raise (ValueError('Les mots doivent être de la même longueur'))
+    for cpt in range(len(anagram)):
+        if anagram[cpt] == '?':
             pass
-        else :
-            if r==False:
-                for i in range(len(a)):
-                    b=anagram[n]
-                    c = a[i]
-                    if b == c[n]:
-                        l.append(c)
-                        r=True
-                print(l)
-            else:
-                t=False
-                i=0
-                while t == False:
-                    ff=[]
-                    ff.append(i)
-                    if anagram[n] != l[i][n]:
-                        l.pop(l[i])
-                    if l[i] == l[-1]:
-                        print(True)
-                        break
-                    i=i+1
-                    ff.append(i)
-                    i=i+1
-                    ff.append(i)
-                    print(ff)
-                print('putis')
-    return(l)
-#             
-                    
-                    
+        else:
+            if anagram[cpt] != word[cpt]:
+                return False
+    return True
+def Sfindincomplete(anagram,lenth='max'):
+    result=[]
+    wordlist=WF.findAnagram(anagram,lenth)
+    for i in wordlist:
+        if sameLetter(anagram,i) == True:
+            result.append(i)
+    return(result)
