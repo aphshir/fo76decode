@@ -1,5 +1,7 @@
 import requests
 import re
+import time
+import WFscrap as WF #custom lib to scrap wordfinder made my dilgodev !
 def pairing(key,number,pairlist):
     if type(key) != str:
         raise TypeError("expected str at key got, " ,errortrans(key))
@@ -50,7 +52,7 @@ def findcode(scrambled,word,pairs):
         codel.append(pairs[pairindex[mirorcode[i]]])
     code = "".join(map(str,codel))
     return(code)
-def findanagram(scrambled):
+def APIfindanagram(scrambled):
     if type != scrambled:
         raise TypeError('expected str at scrambled got, ', errortrans(scrambled))
     anagram=[]
@@ -98,4 +100,43 @@ def errortrans(typ):
     else:
         r=type(typ)
     return(r)
-        
+def Sfindincomplete(anagram,lenth='max'):
+    r=False
+    l=[]
+    a=WF.findAnagram(anagram,lenth)
+    for n in range(len(anagram)):
+        #anagram = ?es?
+        print(anagram[n])
+        print('n=',n)
+        if anagram[n] == '?':
+            pass
+        else :
+            if r==False:
+                for i in range(len(a)):
+                    b=anagram[n]
+                    c = a[i]
+                    if b == c[n]:
+                        l.append(c)
+                        r=True
+                print(l)
+            else:
+                t=False
+                i=0
+                while t == False:
+                    ff=[]
+                    ff.append(i)
+                    if anagram[n] != l[i][n]:
+                        l.pop(l[i])
+                    if l[i] == l[-1]:
+                        print(True)
+                        break
+                    i=i+1
+                    ff.append(i)
+                    i=i+1
+                    ff.append(i)
+                    print(ff)
+                print('putis')
+    return(l)
+#             
+                    
+                    
