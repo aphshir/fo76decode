@@ -109,10 +109,11 @@ def sameLetter(anagram, word):
             if anagram[cpt] != word[cpt]:
                 return False
     return True
-def Sfindincomplete(anagram,lenth='max'):
+def Fincomplete(anagram,lenth='max'):
     result=[]
     wordlist=WF.findAnagram(anagram,lenth)
     for i in wordlist:
         if sameLetter(anagram,i) == True:
             result.append(i)
     return(result)
+    
