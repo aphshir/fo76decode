@@ -1,5 +1,6 @@
 import requests
 import re
+import WFscrap as WF #custom lib to scrap wordfinder made by dilgodev !
 def pairing(key,number,pairlist):
     if type(key) != str:
         raise TypeError("expected str at key got, " ,errortrans(key))
@@ -50,7 +51,7 @@ def findcode(scrambled,word,pairs):
         codel.append(pairs[pairindex[mirorcode[i]]])
     code = "".join(map(str,codel))
     return(code)
-def findanagram(scrambled):
+def APIfindanagram(scrambled):
     if type != scrambled:
         raise TypeError('expected str at scrambled got, ', errortrans(scrambled))
     anagram=[]
@@ -98,4 +99,20 @@ def errortrans(typ):
     else:
         r=type(typ)
     return(r)
-        
+def sameLetter(anagram, word):
+    if len(anagram) != len(word):
+        raise (ValueError('Les mots doivent être de la même longueur'))
+    for cpt in range(len(anagram)):
+        if anagram[cpt] == '?':
+            pass
+        else:
+            if anagram[cpt] != word[cpt]:
+                return False
+    return True
+def Sfindincomplete(anagram,lenth='max'):
+    result=[]
+    wordlist=WF.findAnagram(anagram,lenth)
+    for i in wordlist:
+        if sameLetter(anagram,i) == True:
+            result.append(i)
+    return(result)
